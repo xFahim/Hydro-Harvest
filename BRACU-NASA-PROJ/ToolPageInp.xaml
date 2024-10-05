@@ -14,89 +14,147 @@ TextOptions.TextRenderingMode="Auto"
 Background="{DynamicResource MaterialDesignPaper}"
 FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="950" d:DesignWidth="800"
+      d:DesignHeight="950" d:DesignWidth="1200"
       Title="ToolPageInp">
 
     <Grid>
+
         <!-- Split the grid into two equal columns -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <!-- Input Section (Left) -->
-        <materialDesign:Card materialDesign:ShadowAssist.Darken="True" materialDesign:ElevationAssist.Elevation="Dp8" Grid.Column="0" Margin="20" Padding="20">
-            <StackPanel>
-                <TextBlock FontSize="22" FontWeight="Bold" Text="Input Section" Margin="0 0 0 20" />
+        <materialDesign:Card materialDesign:ShadowAssist.Darken="True" materialDesign:ElevationAssist.Elevation="Dp8" Grid.Column="0" Margin="20 20 0 20" Padding="20" >
 
-                <!-- Land Size Input with subfields -->
-                <TextBlock FontSize="18" FontWeight="SemiBold" Text="Land Size" Margin="0 10 0 5" />
-                <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
-                    <TextBox FontSize="22" FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="150" materialDesign:HintAssist.Hint="Length (m)" />
-                    <TextBox FontSize="22" FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="150" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Width (m)" />
-                </StackPanel>
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock FontSize="22" FontWeight="Bold" Text="Input Section" Margin="0 0 0 20" />
 
-                <StackPanel Margin="0 10 0 0" >
-                    <TextBlock FontSize="18" FontWeight="SemiBold" Text="Location" Margin="0 10 0 5" />
+                    <!-- Land Size Input with subfields -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Red" VerticalAlignment="Center" Margin="0 0 0 0" FontWeight="SemiBold" FontSize="18">*</TextBlock>
+                        <materialDesign:PackIcon Kind="LandFields" VerticalAlignment="Center" Width="20" Height="20" Margin="0 0 10 0"></materialDesign:PackIcon>
+                        <TextBlock FontSize="18" VerticalAlignment="Center" FontWeight="SemiBold" Text="Land Size" Margin="0 0 0 0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
+                        <TextBox FontSize="22" FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="150" materialDesign:HintAssist.Hint="Length (m)" />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Kind="LetterX" Opacity="0.5"  Margin="10 0 10 0"></materialDesign:PackIcon>
+                        <TextBox FontSize="22" FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="150" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Width (m)" />
+                    </StackPanel>
 
-                    <!-- Button for Get My Location -->
-                    <Button Name="GetCurrLoc" Click="GetCurrLoc_Click" FontSize="18" Width="280" Margin="0 10 0 0" Padding="2" HorizontalAlignment="Left" materialDesign:ShadowAssist.Darken="False" Height="46" Background="#FF2EC134"  Foreground="White" >
-
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="assets/loc.png" Width="24"></Image>
-                            <TextBlock VerticalAlignment="Center" Margin="10 0 0 0">Get My Current Location</TextBlock>
-                        </StackPanel>
-                        
-                    </Button>
-
-                    <Expander  Margin="0 10 0 0">
+                    <Expander  Margin="0 10 0 0" Padding="10">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal" Opacity="0.7">
-                                <TextBlock FontWeight="SemiBold"  VerticalAlignment="Center" FontSize="16">Custom Location</TextBlock>
-                                <TextBlock FontFamily="Segoe MDL2 Assets" Margin="10 0 0 0" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Text="&#xE707;"/>
+                                <TextBlock Foreground="Red" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="SemiBold" FontSize="18">*</TextBlock>
+                                <materialDesign:PackIcon Kind="Corn" VerticalAlignment="Center" Width="20" Height="20" Margin="0 0 10 0"></materialDesign:PackIcon>
+                                <TextBlock FontWeight="SemiBold"  VerticalAlignment="Center" FontSize="18">Crop Specification</TextBlock>
                             </StackPanel>
                         </Expander.Header>
                         <Expander.Content>
-                            <ComboBox x:Name="LocationComboBox" FontSize="18" Width="330" Margin="20" SelectedIndex="0" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Choose Location">
-                            </ComboBox>
+                            <StackPanel>
+                                <!-- crop type with subfields -->
+                                <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
+                                    <ComboBox FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="220" materialDesign:HintAssist.Hint="Select the Crop Type" />
+                                </StackPanel>
+
+                                <TextBlock FontWeight="SemiBold" Opacity="0.5">Crop Phase</TextBlock>
+
+                                <StackPanel Orientation="Horizontal" Margin="10">
+                                    <RadioButton VerticalAlignment="Center">
+                                        <StackPanel>
+                                            <materialDesign:PackIcon Foreground="#FF54B520" HorizontalAlignment="Center" Kind="Seed"></materialDesign:PackIcon>
+                                            <TextBlock HorizontalAlignment="Center">Initial</TextBlock>
+                                        </StackPanel> 
+                                    </RadioButton>
+
+                                    <RadioButton Margin="20 0 0 0" VerticalAlignment="Center">
+                                        <StackPanel>
+                                            <materialDesign:PackIcon Foreground="#FF54B520" HorizontalAlignment="Center" Kind="Seed"></materialDesign:PackIcon>
+                                            <TextBlock HorizontalAlignment="Center">Mid</TextBlock>
+                                        </StackPanel>
+                                    </RadioButton>
+
+                                </StackPanel>
+                            </StackPanel>
                         </Expander.Content>
                     </Expander>
 
-                    <!-- Combobox to choose from a list of districts and coordinates -->
                     
 
-                    <!-- Map Control (Placeholder for GMap.NET) -->
-                    <Border BorderBrush="Gray" BorderThickness="1" Margin="0 20 0 0" Height="300">
+                    
 
-                        <gmap:GMapControl x:Name="mapControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 20 0 0"></gmap:GMapControl>
-                    </Border>
-                </StackPanel>
+                    <StackPanel Margin="0 10 0 0" >
 
-                <StackPanel Margin="0 20 0 0">
-                    <TextBlock FontSize="18" FontWeight="SemiBold" Text="Timeline" Margin="0 10 0 5" />
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Foreground="Red" VerticalAlignment="Center" Margin="0 0 0 0" FontWeight="SemiBold" FontSize="18">*</TextBlock>
+                            <materialDesign:PackIcon Kind="Map" VerticalAlignment="Center" Width="20" Height="20" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <TextBlock FontSize="18" FontWeight="SemiBold" Text="Location" Margin="0 0 0 0" />
+                        </StackPanel>
 
-                    <!-- Start Date Picker -->
-                    <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
-                        <TextBlock FontSize="20" VerticalAlignment="Center" Text="Specify the year:" />
-                        <TextBox Name="YearBox" FontSize="18" Margin="27 0 0 0" materialDesign:HintAssist.Hint="Default - Current Year"></TextBox>
+                        <!-- Button for Get My Location -->
+                        <Button Name="GetCurrLoc" Click="GetCurrLoc_Click" FontSize="18" Width="280" Margin="0 10 0 0" Padding="2" HorizontalAlignment="Left" materialDesign:ShadowAssist.Darken="False" Height="46" Background="#FF2EC134"  Foreground="White" >
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="assets/loc.png" Width="24"></Image>
+                                <TextBlock VerticalAlignment="Center" Margin="10 0 0 0">Get My Current Location</TextBlock>
+                            </StackPanel>
+
+                        </Button>
+
+                        <Expander  Margin="0 10 0 0">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal" Opacity="0.7">
+                                    <TextBlock FontWeight="SemiBold"  VerticalAlignment="Center" FontSize="16">Custom Location</TextBlock>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Margin="10 0 0 0" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Text="&#xE707;"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <ComboBox x:Name="LocationComboBox" FontSize="18" Width="330" Margin="20" SelectedIndex="0" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Choose Location">
+                                </ComboBox>
+                            </Expander.Content>
+                        </Expander>
+
+                        <!-- Combobox to choose from a list of districts and coordinates -->
+
+
+                        <!-- Map Control (Placeholder for GMap.NET) -->
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="0 20 0 0" Height="300">
+
+                            <gmap:GMapControl x:Name="mapControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 20 0 0"></gmap:GMapControl>
+                        </Border>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
-                        <TextBlock FontSize="20" VerticalAlignment="Center" Text="Specify the radius:" />
-                        <TextBox Name="RadBox" FontSize="18" Margin="10 0 0 0" Padding="2" materialDesign:HintAssist.Hint="Radius you're targeting"></TextBox>
+                    <StackPanel Margin="0 10 0 0">
+                        <TextBlock FontSize="18" FontWeight="SemiBold" Text="Timeline" Margin="0 10 0 5" />
+
+                        <!-- Start Date Picker -->
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <materialDesign:PackIcon Kind="Calendar" VerticalAlignment="Center" Width="20" Height="20" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <TextBlock FontSize="20" VerticalAlignment="Center" Text="Specify the year:" />
+                            <TextBox Name="YearBox" FontSize="18" Margin="27 0 0 0" materialDesign:HintAssist.Hint="Default - Current Year"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <materialDesign:PackIcon Kind="Radius" VerticalAlignment="Center" Width="20" Height="20" Margin="0 0 10 0"></materialDesign:PackIcon>
+                            <TextBlock FontSize="20" VerticalAlignment="Center" Text="Specify the radius:" />
+                            <TextBox Name="RadBox" FontSize="18" Margin="10 0 0 0" Padding="2" materialDesign:HintAssist.Hint="Radius you're targeting"></TextBox>
+                        </StackPanel>
+
+
+                        <Button Name="GetResBtn" Click="GetResBtn_Click" FontSize="18" Width="280" Margin="0 10 0 0" Padding="2" HorizontalAlignment="Left" materialDesign:ShadowAssist.Darken="False" Height="46" Background="#FF2EC134"  Foreground="White" >
+                            Get Results
+                        </Button>
+
+
                     </StackPanel>
 
 
-                    <Button Name="GetResBtn" Click="GetResBtn_Click" FontSize="18" Width="280" Margin="0 10 0 0" Padding="2" HorizontalAlignment="Left" materialDesign:ShadowAssist.Darken="False" Height="46" Background="#FF2EC134"  Foreground="White" >
-                        Get Results
-                    </Button>
-
 
                 </StackPanel>
-
-
-
-            </StackPanel>
+            </ScrollViewer>
+            
         </materialDesign:Card>
 
         <!-- Output Section (Right) -->
@@ -118,7 +176,7 @@ FontFamily="{DynamicResource MaterialDesignFont}"
                             </DataGrid>
 
 
-                            <lvc:CartesianChart x:Name="RainfallChart" Margin="20" Height="400">
+                            <lvc:CartesianChart x:Name="RainfallChart" Margin="20" Height="220">
                                 <lvc:CartesianChart.ToolTip>
                                     <lvc:DefaultTooltip SelectionMode="OnlySender" />
                                 </lvc:CartesianChart.ToolTip>

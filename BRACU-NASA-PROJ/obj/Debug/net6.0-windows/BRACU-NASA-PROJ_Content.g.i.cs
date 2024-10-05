@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/aigen.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/bg.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/dum.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/fg.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/globe.png")]

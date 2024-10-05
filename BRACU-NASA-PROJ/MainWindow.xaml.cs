@@ -27,7 +27,7 @@ namespace BRACU_NASA_PROJ
             CollapseAllLine();
             Line2.Visibility = Visibility.Visible;
 
-            NavFrame.Navigate(new welcome());
+            NavFrame.Navigate(new ToolPageInp());
         }
 
         private void CloseWinBtn_Click(object sender, RoutedEventArgs e)
