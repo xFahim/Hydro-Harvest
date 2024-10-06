@@ -17,6 +17,12 @@ FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="950" d:DesignWidth="1200"
       Title="ToolPageInp">
 
+    <Page.Resources>
+
+
+    </Page.Resources>
+    
+    
     <Grid>
 
         <!-- Split the grid into two equal columns -->
@@ -26,6 +32,8 @@ FontFamily="{DynamicResource MaterialDesignFont}"
         </Grid.ColumnDefinitions>
 
         <!-- Input Section (Left) -->
+
+
         <materialDesign:Card materialDesign:ShadowAssist.Darken="True" materialDesign:ElevationAssist.Elevation="Dp8" Grid.Column="0" Margin="20 20 0 20" Padding="20" >
 
             <ScrollViewer>
@@ -56,7 +64,12 @@ FontFamily="{DynamicResource MaterialDesignFont}"
                             <StackPanel>
                                 <!-- crop type with subfields -->
                                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
-                                    <ComboBox FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="220" materialDesign:HintAssist.Hint="Select the Crop Type" />
+                                    <ComboBox FontFamily="pack://application:,,,/Fonts/#Simplifica" Width="220" materialDesign:HintAssist.Hint="Select the Crop Type" >
+                                        <ComboBoxItem>Rice</ComboBoxItem>
+                                        <ComboBoxItem>Potato</ComboBoxItem>
+                                        <ComboBoxItem>Wheat</ComboBoxItem>
+                                        <ComboBoxItem>Tomatoo</ComboBoxItem>
+                                    </ComboBox>
                                 </StackPanel>
 
                                 <TextBlock FontWeight="SemiBold" Opacity="0.5">Crop Phase</TextBlock>
@@ -64,15 +77,22 @@ FontFamily="{DynamicResource MaterialDesignFont}"
                                 <StackPanel Orientation="Horizontal" Margin="10">
                                     <RadioButton VerticalAlignment="Center">
                                         <StackPanel>
-                                            <materialDesign:PackIcon Foreground="#FF54B520" HorizontalAlignment="Center" Kind="Seed"></materialDesign:PackIcon>
+                                            <materialDesign:PackIcon Foreground="#FF0CA997" HorizontalAlignment="Center" Kind="Seed"></materialDesign:PackIcon>
                                             <TextBlock HorizontalAlignment="Center">Initial</TextBlock>
                                         </StackPanel> 
                                     </RadioButton>
 
                                     <RadioButton Margin="20 0 0 0" VerticalAlignment="Center">
                                         <StackPanel>
-                                            <materialDesign:PackIcon Foreground="#FF54B520" HorizontalAlignment="Center" Kind="Seed"></materialDesign:PackIcon>
+                                            <materialDesign:PackIcon Foreground="#FF6CC309" HorizontalAlignment="Center" Kind="Tree"></materialDesign:PackIcon>
                                             <TextBlock HorizontalAlignment="Center">Mid</TextBlock>
+                                        </StackPanel>
+                                    </RadioButton>
+
+                                    <RadioButton Margin="20 0 0 0" VerticalAlignment="Center">
+                                        <StackPanel>
+                                            <materialDesign:PackIcon Foreground="#FFDAC807" HorizontalAlignment="Center" Kind="Wheat"></materialDesign:PackIcon>
+                                            <TextBlock HorizontalAlignment="Center">Late</TextBlock>
                                         </StackPanel>
                                     </RadioButton>
 
@@ -161,10 +181,16 @@ FontFamily="{DynamicResource MaterialDesignFont}"
         <materialDesign:Card materialDesign:ShadowAssist.Darken="True" materialDesign:ElevationAssist.Elevation="Dp8" Grid.Column="1" Margin="20" Padding="20">
             <StackPanel>
                 <TextBlock FontSize="22" FontWeight="Bold" Text="Output Section" Margin="0 0 0 20" />
+                
+                
+                
+                
 
                 <!-- Tabs for future outputs -->
                 <TabControl>
-                    <TabItem Header="Precipitation">
+
+
+                    <TabItem Header="Precipitation Data">
                         <StackPanel>
                             <TextBlock Margin="10" FontWeight="SemiBold" Opacity="0.7" FontSize="16">Data Table</TextBlock>
                             <DataGrid x:Name="RainfallDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Height="200" VerticalAlignment="Stretch">
@@ -189,12 +215,295 @@ FontFamily="{DynamicResource MaterialDesignFont}"
                             </lvc:CartesianChart>
                         </StackPanel>
                     </TabItem>
+
+                    <TabItem Header="SMAP, LANDSAT">
+                        <ScrollViewer>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <TextBlock FontWeight="SemiBold" FontSize="22">SMAP Image from</TextBlock>
+                                    <TextBlock Foreground="RoyalBlue">https://smap.jpl.nasa.gov/</TextBlock>
+                                    <Image Margin="10" Source="Assets/smap.jpg" Width="400"></Image>
+                                    <Button  HorizontalAlignment="Left" Margin="10" Foreground="White" >Further Analysis</Button>
+                                </StackPanel>
+
+                                <StackPanel Margin="0 10 0 0">
+                                    <TextBlock FontWeight="SemiBold" FontSize="22">LANDSAT Image from</TextBlock>
+                                    <TextBlock Foreground="RoyalBlue">https://landsat.gsfc.nasa.gov/</TextBlock>
+                                    <Image Margin="10" Source="Assets/landsat.jpg" Width="400"></Image>
+
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+
+
                     <TabItem Header="Water Level">
-                        <TextBlock Text="No output yet." FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                        <Grid Margin="20">
+                            <Grid.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="2"/>
+                                    <Setter Property="CornerRadius" Value="10"/>
+
+                                    <!-- Initial Glow -->
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="Cyan" BlurRadius="0" ShadowDepth="0" Opacity="0"/>
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!-- Render transform for scaling -->
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <Style.Triggers>
+                                        <!-- MouseEnter Animation -->
+                                        <EventTrigger RoutedEvent="MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <!-- Slight Pop-up (Scaling) -->
+                                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" To="1.1" Duration="0:0:0.3" AutoReverse="True"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" To="1.1" Duration="0:0:0.3" AutoReverse="True"/>
+
+                                                    <!-- Glow Effect Animation -->
+                                                    <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="Cyan" Duration="0:0:0.3"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)" To="15" Duration="0:0:0.3"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" To="1" Duration="0:0:0.3"/>
+
+                                                    <!-- Glow Movement along the border -->
+                                                    <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.ShadowDepth)" From="0" To="10" AutoReverse="True" Duration="0:0:0.6" RepeatBehavior="Forever"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+
+                                        <!-- MouseLeave Animation (Reset) -->
+                                        <EventTrigger RoutedEvent="MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <!-- Reset Pop-up Effect -->
+                                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.3"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.3"/>
+
+                                                    <!-- Reset Glow Effect -->
+                                                    <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.BlurRadius)" To="0" Duration="0:0:0.3"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)" To="0" Duration="0:0:0.3"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Resources>
+                            <!-- UniformGrid to hold the 12 months -->
+                            <UniformGrid Rows="4" Columns="3" Margin="10" Background="White">
+
+                                <!-- January (High Water Level) -->
+                                <Border x:Name="JanuaryGrid" Background="#8BC6F5" BorderThickness="2" BorderBrush="Gray" 
+                    CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- High Water Level Icon (Sea) -->
+                                        <Image Source="/Assets/sea.png" Width="60" Height="60"/>
+                                        <TextBlock Text="January" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: High" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <!-- Extra Info: Average Irrigation Days -->
+                                        <TextBlock Text="Irrigation Days: 4" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +50mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- February (Low Water Level) -->
+                                <Border x:Name="FebruaryGrid" Background="#FAD02E" BorderThickness="2" BorderBrush="Gray" 
+                    CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Low Water Level Icon (Withered) -->
+                                        <Image Source="/Assets/withered.png" Width="60" Height="60"/>
+                                        <TextBlock Text="February" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Low" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <!-- Extra Info: Water Deficiency -->
+                                        <TextBlock Text="Irrigation Days: 10" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Deficit: -30mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- March (Medium Water Level) -->
+                                <Border x:Name="MarchGrid" Background="#A3E4D7" BorderThickness="2" BorderBrush="Gray" 
+                    CornerRadius="10" Margin="5" Padding="10"  MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Medium Water Level Icon (Sea) -->
+                                        <Image Source="/Assets/sea.png" Width="60" Height="60"/>
+                                        <TextBlock Text="March" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Medium" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <!-- Extra Info: Average Water Data -->
+                                        <TextBlock Text="Irrigation Days: 7" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +10mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- April (Raining) -->
+                                <Border x:Name="AprilGrid" Background="#FF9A76" BorderThickness="2" BorderBrush="Gray" 
+                    CornerRadius="10" Margin="5" Padding="10"  MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Raining Icon -->
+                                        <Image Source="/Assets/raining.png" Width="60" Height="60"/>
+                                        <TextBlock Text="April" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: High" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <!-- Extra Info: Irrigation Days -->
+                                        <TextBlock Text="Irrigation Days: 3" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +60mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- May (Low Water Level) -->
+                                <Border x:Name="MayGrid" Background="#F6D565" BorderThickness="2" BorderBrush="Gray" 
+                    CornerRadius="10" Margin="5" Padding="10"  MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Low Water Level Icon (Withered) -->
+                                        <Image Source="/Assets/withered.png" Width="60" Height="60"/>
+                                        <TextBlock Text="May" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Low" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 8" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Deficit: -40mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- June (Moderate Water Level) -->
+                                <Border x:Name="JuneGrid" Background="#FF4A90E2" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Moderate Water Level Icon (Sea) -->
+                                        <Image Source="/Assets/sea.png" Width="60" Height="60"/>
+                                        <TextBlock Text="June" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Moderate" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 5" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +20mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- July (High Water Level) -->
+                                <Border x:Name="JulyGrid" Background="#FF3BBF69" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- High Water Level Icon (Raining) -->
+                                        <Image Source="/Assets/raining.png" Width="60" Height="60"/>
+                                        <TextBlock Text="July" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: High" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 2" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +80mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- August (Moderate Water Level) -->
+                                <Border x:Name="AugustGrid" Background="#FF8B00B6" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Moderate Water Level Icon (Sea) -->
+                                        <Image Source="/Assets/sea.png" Width="60" Height="60"/>
+                                        <TextBlock Text="August" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Moderate" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 4" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +15mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- September (Low Water Level) -->
+                                <Border x:Name="SeptemberGrid" Background="#FFD9A24B" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Low Water Level Icon (Withered) -->
+                                        <Image Source="/Assets/withered.png" Width="60" Height="60"/>
+                                        <TextBlock Text="September" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Low" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 9" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Deficit: -50mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- October (Very Low Water Level) -->
+                                <Border x:Name="OctoberGrid" Background="#FFE74C3C" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Very Low Water Level Icon (Withered) -->
+                                        <Image Source="/Assets/withered.png" Width="60" Height="60"/>
+                                        <TextBlock Text="October" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Very Low" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 12" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Deficit: -70mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- November (Low Water Level) -->
+                                <Border x:Name="NovemberGrid" Background="#FFF39C12" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Low Water Level Icon (Withered) -->
+                                        <Image Source="/Assets/withered.png" Width="60" Height="60"/>
+                                        <TextBlock Text="November" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Low" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 10" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Deficit: -60mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- December (Moderate Water Level) -->
+                                <Border x:Name="DecemberGrid" Background="#FF8E44AD" BorderThickness="2" BorderBrush="Gray" 
+        CornerRadius="10" Margin="5" Padding="10" MouseLeftButtonDown="Grid_Click">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!-- Moderate Water Level Icon (Sea) -->
+                                        <Image Source="/Assets/sea.png" Width="60" Height="60"/>
+                                        <TextBlock Text="December" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+                                        <TextBlock Text="Water Level: Moderate" FontSize="14" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Irrigation Days: 6" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                        <TextBlock Text="Surplus: +10mm" FontSize="12" HorizontalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <!-- Complete for June to December similar to the above structure with varying water levels, irrigation days, and surplus/deficit data -->
+                            </UniformGrid>
+                        </Grid>
+
                     </TabItem>
-                    <TabItem Header="Cost Estimation">
-                        <TextBlock Text="No output yet." FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </TabItem>
+
                 </TabControl>
             </StackPanel>
         </materialDesign:Card>

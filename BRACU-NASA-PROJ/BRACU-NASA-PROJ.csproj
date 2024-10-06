@@ -10,23 +10,36 @@
 
   <ItemGroup>
     <None Remove="Assets\aigen.png" />
-    <None Remove="Assets\bg.jpg" />
-    <None Remove="Assets\dum.png" />
+    <None Remove="Assets\butterflies.png" />
+    <None Remove="Assets\corn.jpg" />
     <None Remove="Assets\fg.png" />
     <None Remove="Assets\globe.png" />
     <None Remove="Assets\globe2.png" />
+    <None Remove="Assets\gpt.png" />
     <None Remove="Assets\images.png" />
+    <None Remove="Assets\landsat.jpg" />
     <None Remove="Assets\loc.png" />
-    <None Remove="Assets\logo1.png" />
     <None Remove="Assets\logom.png" />
     <None Remove="Assets\nasa.png" />
     <None Remove="Assets\p2.jpeg" />
+    <None Remove="Assets\raining.png" />
     <None Remove="Assets\report.png" />
+    <None Remove="Assets\rice.jpg" />
     <None Remove="Assets\sat.png" />
+    <None Remove="Assets\sea.png" />
+    <None Remove="Assets\smap.jpg" />
+    <None Remove="Assets\soy.jpg" />
     <None Remove="Assets\t1.jpg" />
     <None Remove="Assets\t2.jpg" />
+    <None Remove="Assets\withered.png" />
     <None Remove="Fonts\Ailerons-Regular.otf" />
     <None Remove="Fonts\Axis Extrabold.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\corn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +55,7 @@
     <Content Include="Assets\aigen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\bg.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\dum.png">
+    <Content Include="Assets\butterflies.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\fg.png">
@@ -57,13 +67,16 @@
     <Content Include="Assets\globe2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\gpt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\images.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\loc.png">
+    <Content Include="Assets\landsat.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\logo1.png">
+    <Content Include="Assets\loc.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\logom.png">
@@ -75,10 +88,25 @@
     <Content Include="Assets\p2.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\raining.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\report.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\rice.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\sat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\sea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\smap.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\soy.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\t1.jpg">
@@ -86,6 +114,9 @@
     </Content>
     <Content Include="Assets\t2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\withered.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Fonts\Ailerons-Regular.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

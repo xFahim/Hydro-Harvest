@@ -73,13 +73,11 @@ C:\Users\syedf\source\repos\BRACU-NASA-PROJ\BRACU-NASA-PROJ\obj\Debug\net6.0-win
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Fonts\Axis Extrabold.otf
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\BRACU-NASA-PROJ.exe
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\aigen.png
-C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\dum.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\fg.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\globe.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\globe2.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\images.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\loc.png
-C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\logo1.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\logom.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\nasa.png
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\p2.jpeg
@@ -142,4 +140,15 @@ C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\obj\Debug\net6.0-windows\refint
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\obj\Debug\net6.0-windows\BRACU-NASA-PROJ.pdb
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\obj\Debug\net6.0-windows\BRACU-NASA-PROJ.genruntimeconfig.cache
 C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\obj\Debug\net6.0-windows\ref\BRACU-NASA-PROJ.dll
-C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\bg.jpg
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\withered.png
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\butterflies.png
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\raining.png
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\sea.png
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\obj\Debug\net6.0-windows\DataPopUP.g.cs
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\gpt.png
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\obj\Debug\net6.0-windows\DataPopUP.baml
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\corn.jpg
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\rice.jpg
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\soy.jpg
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\landsat.jpg
+C:\COIDING\GIT PRO\Hydro-Harvest\BRACU-NASA-PROJ\bin\Debug\net6.0-windows\Assets\smap.jpg

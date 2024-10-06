@@ -239,6 +239,13 @@ namespace BRACU_NASA_PROJ
             Location l = LocationComboBox.Items[0] as Location;
             MessageBox.Show("Current cords are set : " + l.Latitude.ToString() + "  -  " +  l.Longitude.ToString());
         }
+
+        private void Grid_Click(object sender, MouseButtonEventArgs e)
+        {
+            DataPopUP d = new DataPopUP();
+            d.ShowDialog();
+        }
+    
     }
 
     public class Location
