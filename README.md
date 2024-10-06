@@ -13,6 +13,14 @@
    ```
 4. Run the application by executing `BRACU-NASA-PROJ.exe`.
 
+
+## 🌐 Machine Learning & Dataset API
+
+The **HydroHarvest** project also integrates a powerful machine learning model and dataset API, developed by one of our team members. This component allows us to analyze and predict water requirements, crop irrigation needs, and other key factors that contribute to smarter farming decisions. 
+
+For more details on the API and machine learning model, please visit the separate repository [here](https://github.com/SucksToBeAnik/hydroharvest).
+
+
 ### Requirements:
 - **.NET 6.0 Framework** must be installed on your machine.
 - The application is built for **Windows operating systems** only.
